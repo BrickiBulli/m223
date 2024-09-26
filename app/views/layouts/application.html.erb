@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
-  <body class="bg-gray-900 text-white">
+  <body class="bg-gray-900 text-white flex flex-col min-h-screen">
   <% if current_employee %>
     <nav class="bg-gray-800 shadow-lg fixed w-full z-10">
       <div class="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -48,8 +48,19 @@
       </div>
     </nav>
   <% end %>
-  <div class="pt-20">
+
+  <div class="pt-20 flex-grow">
     <%= yield %>
   </div>
+
+  <footer class="bg-gray-800 text-gray-400 py-2 mt-10">
+    <div class="container mx-auto flex justify-between items-center">
+      <p class="text-sm">&copy; <%= Time.current.year %> Smartstock. All rights reserved.</p>
+      <div class="flex space-x-4">
+        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_RYVNu5onQyBOKr7E2EfAKmQIdrUe1Ci_mw&s" target="_blank" class="text-purple-400 hover:text-purple-300 text-sm">Privacy Policy</a>
+        <a href="https://plus.unsplash.com/premium_photo-1694819488591-a43907d1c5cc?q=80&w=1914&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" target="_blank" class="text-purple-400 hover:text-purple-300 text-sm">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

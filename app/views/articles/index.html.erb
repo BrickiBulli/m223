@@ -23,9 +23,9 @@
           <td class="py-3 px-8 text-left"><%= article.weight %></td>
           <td class="py-3 px-8 text-left"><%= article.current_stock %></td>
           <td class="py-3 px-8 text-left flex space-x-2">
-            <%= link_to 'Show', article_path(article), class: 'text-purple-400 hover:text-purple-300 font-semibold' %>
+            <%= link_to raw('<span class="material-icons align-middle">visibility</span>'), article_path(article), class: 'text-purple-400 hover:text-purple-300' %>
             <% if current_employee&.storage_manager? %>
-              <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-red-500 hover:text-red-400 font-semibold' %>
+              <%= link_to raw('<span class="material-icons align-middle text-red-500">delete</span>'), article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class: 'hover:text-red-400' %>
             <% end %>
           </td>
         </tr>

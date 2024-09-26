@@ -29,8 +29,8 @@
           <td class="py-3 px-8 text-left"><%= employee.email %></td>
           <td class="py-3 px-8 text-left"><%= employee.role.humanize %></td>
           <td class="py-3 px-8 text-left flex space-x-2">
-            <%= link_to 'Show', employee_path(employee), class: 'text-purple-400 hover:text-purple-300 font-semibold' %>
-            <%= link_to 'Delete', employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-red-500 hover:text-red-400 font-semibold' %>
+            <%= link_to raw('<span class="material-icons align-middle">visibility</span>'), employee_path(employee), class: 'text-purple-400 hover:text-purple-300' %>
+            <%= link_to raw('<span class="material-icons align-middle text-red-500">delete</span>'), employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' }, class: 'hover:text-red-400' %>
           </td>
         </tr>
       <% end %>
