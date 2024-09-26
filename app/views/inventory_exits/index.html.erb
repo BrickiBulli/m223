@@ -1,5 +1,9 @@
 <h1 class="text-3xl font-bold text-white mb-6 mt-6 px-8">Inventory Exits</h1>
 
+<div class="flex justify-between items-center mb-4 px-8">
+  <%= link_to raw('<span class="material-icons align-middle">add</span><span class="ml-2">New Inventory Exit</span>'), new_inventory_exit_path, class: 'flex items-center bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition duration-200' %>
+</div>
+
 <div class="overflow-x-auto px-8">
   <table class="min-w-full bg-gray-800 rounded-lg overflow-hidden shadow-lg"> <!-- Changed to rounded-lg -->
     <thead>

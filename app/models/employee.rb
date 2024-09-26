@@ -10,7 +10,8 @@ class Employee < ApplicationRecord
     validates :password, presence: true, length: { minimum: 12 }, on: :create
     validates :password, length: { minimum: 12 }, allow_blank: true, on: :update
     has_secure_password
- 
+    has_paper_trail
+
     def storage_manager?
         role == ROLE_STORAGE_MANAGER
     end

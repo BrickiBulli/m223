@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get "activities/index"
   resources :articles, only: [:index, :new, :create, :edit, :update, :show, :destroy]
   resources :employees, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   resources :inventory_entries, only: [:new, :create, :index]
   resources :inventory_exits, only: [:new, :create, :index]
+  resources :activities, only: [:index]
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

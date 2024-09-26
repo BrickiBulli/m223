@@ -1,0 +1,26 @@
+<h1 class="text-3xl font-bold text-white mb-6 mt-6 px-8">Activity Log</h1>
+
+<div class="overflow-x-auto px-8">
+  <table class="min-w-full bg-gray-800 rounded-lg overflow-hidden shadow-lg"> <!-- Changed to rounded-lg -->
+    <thead>
+      <tr class="bg-gray-700 text-purple-300">
+        <th class="py-3 px-8 text-left">Item Type</th>
+        <th class="py-3 px-8 text-left">Item ID</th>
+        <th class="py-3 px-8 text-left">Event</th>
+        <th class="py-3 px-8 text-left">Created At</th>
+        <th class="py-3 px-8 text-left">Whodunnit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @versions.each do |version| %>
+        <tr class="text-gray-300 hover:bg-gray-700">
+          <td class="py-3 px-8 text-left"><%= version.item_type %></td>
+          <td class="py-3 px-8 text-left"><%= version.item_id %></td>
+          <td class="py-3 px-8 text-left"><%= version.event %></td>
+          <td class="py-3 px-8 text-left"><%= version.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+          <td class="py-3 px-8 text-left"><%= version.whodunnit || "System" %></td> <!-- Show "System" if whodunnit is nil -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

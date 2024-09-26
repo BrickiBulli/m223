@@ -59,6 +59,6 @@ end
 gem 'bcrypt', '~> 3.1.7'
 gem 'rest-client'
 gem 'tailwindcss-rails'
-
+gem 'paper_trail'
 
 
