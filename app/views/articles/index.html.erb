@@ -1,0 +1,31 @@
+<h1 class="text-3xl font-bold text-white mb-6 mt-6 px-8">Article List</h1>
+
+<div class="overflow-x-auto px-8">
+  <table class="min-w-full bg-gray-800 rounded-lg overflow-hidden shadow-lg"> <!-- Changed to rounded-lg -->
+    <thead>
+      <tr class="bg-gray-700 text-purple-300">
+        <th class="py-3 px-8 text-left">Name</th>
+        <th class="py-3 px-8 text-left">Article Number</th>
+        <th class="py-3 px-8 text-left">Weight (kg)</th>
+        <th class="py-3 px-8 text-left">Current Stock</th>
+        <th class="py-3 px-8 text-left">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr class="text-gray-300 hover:bg-gray-700">
+          <td class="py-3 px-8 text-left"><%= article.name %></td>
+          <td class="py-3 px-8 text-left"><%= article.article_number %></td>
+          <td class="py-3 px-8 text-left"><%= article.weight %></td>
+          <td class="py-3 px-8 text-left"><%= article.current_stock %></td>
+          <td class="py-3 px-8 text-left flex space-x-2">
+            <%= link_to 'Show', article_path(article), class: 'text-purple-400 hover:text-purple-300 font-semibold' %>
+            <% if current_employee&.storage_manager? %>
+              <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-red-500 hover:text-red-400 font-semibold' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,17 @@
+<div class="flex items-center justify-center h-screen bg-gray-800">
+  <div class="w-full max-w-md bg-gray-900 p-8 rounded-lg shadow-md">
+    <h1 class="text-3xl font-bold text-white text-center mb-6">Login</h1>
+    
+    <%= form_with(url: login_path, local: true) do |form| %>
+      <div class="mb-4">
+        <%= form.label :email, class: "text-gray-300" %>
+        <%= form.email_field :email, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+      <div class="mb-4">
+        <%= form.label :password, class: "text-gray-300" %>
+        <%= form.password_field :password, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+      <%= form.submit 'Login', class: "mt-6 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded w-full" %>
+    <% end %>
+  </div>
+</div>

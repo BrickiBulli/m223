@@ -1,0 +1,71 @@
+<div class="h-16 bg-gray-800"></div>
+
+<div class="flex items-center justify-center h-screen bg-gray-800">
+  <div class="w-full max-w-lg bg-gray-900 p-8 rounded-lg shadow-md">
+    <h1 class="text-3xl font-bold text-white text-center mb-6">Edit Employee</h1>
+
+    <%= form_with(model: @employee, local: true) do |form| %>
+      <div class="mb-4">
+        <%= form.label :first_name, class: "text-gray-300" %>
+        <%= form.text_field :first_name, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+      
+      <div class="mb-4">
+        <%= form.label :last_name, class: "text-gray-300" %>
+        <%= form.text_field :last_name, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+      
+      <div class="mb-4">
+        <%= form.label :address, class: "text-gray-300" %>
+        <%= form.text_field :address, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :city, class: "text-gray-300" %>
+        <%= form.text_field :city, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :postal_code, class: "text-gray-300" %>
+        <%= form.text_field :postal_code, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :email, class: "text-gray-300" %>
+        <%= form.email_field :email, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :password, 'Password (leave blank to keep current password)', class: "text-gray-300" %>
+        <%= form.password_field :password, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :password_confirmation, 'Confirm Password', class: "text-gray-300" %>
+        <%= form.password_field :password_confirmation, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+
+      <% if current_employee&.storage_manager? %>
+        <div class="mb-4">
+          <%= form.label :role, 'Role', class: "text-gray-300" %>
+          <%= form.select :role, 
+            options_for_select([
+              [Employee::ROLE_STORAGE_MANAGER.humanize, Employee::ROLE_STORAGE_MANAGER],
+              [Employee::ROLE_STORAGE_WORKER.humanize, Employee::ROLE_STORAGE_WORKER]
+            ], @employee.role), 
+            {}, 
+            class: "bg-gray-700 text-gray-300 rounded-lg px-2 py-1 w-full"
+          %>
+        </div>
+      <% end %>
+
+      <%= form.submit 'Update Employee', class: "mt-6 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded w-full" %>
+      <div class="mt-4">
+        <%= link_to 'Back to Employees', employees_path, class: "w-full block text-center bg-gray-600 hover:bg-gray-500 text-white font-medium rounded-lg py-2" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="h-16 bg-gray-800"></div>
+
+

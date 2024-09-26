@@ -1,0 +1,23 @@
+<h1>Edit Employee</h1>
+<%= form_with(model: @article, local: true) do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :article_number %>
+      <%= form.text_field :article_number %>
+    </div>
+    <div>
+      <%= form.label :article_text %>
+      <%= form.text_area :article_text %>
+    </div>
+    <div>
+      <%= form.label :weight, 'Weight (kg)' %>
+      <%= form.number_field :weight, step: 0.01 %>
+    </div>
+  
+    <%= form.submit 'Update Article' %>
+  <% end %>
+  
+  <%= link_to 'Back', articles_path %>

@@ -1,0 +1,24 @@
+<h1 class="text-3xl font-bold text-white mb-6 mt-6 px-8">Inventory Exits</h1>
+
+<div class="overflow-x-auto px-8">
+  <table class="min-w-full bg-gray-800 rounded-lg overflow-hidden shadow-lg"> <!-- Changed to rounded-lg -->
+    <thead>
+      <tr class="bg-gray-700 text-purple-300">
+        <th class="py-3 px-8 text-left">Article</th>
+        <th class="py-3 px-8 text-left">Employee</th>
+        <th class="py-3 px-8 text-left">Quantity</th>
+        <th class="py-3 px-8 text-left">Exit Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @inventory_exits.each do |exit| %>
+        <tr class="text-gray-300 hover:bg-gray-700">
+          <td class="py-3 px-8 text-left"><%= exit.article.name %></td>
+          <td class="py-3 px-8 text-left"><%= exit.employee.last_name %></td>
+          <td class="py-3 px-8 text-left"><%= exit.quantity %></td>
+          <td class="py-3 px-8 text-left"><%= exit.exit_date.strftime('%Y-%m-%d') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,37 @@
+<h1 class="text-3xl font-bold text-white mb-6 mt-5 px-8">Employee Details</h1>
+
+<div class="bg-gray-800 p-6 rounded-lg shadow-lg mx-8">
+  <div class="mb-4">
+    <strong class="text-gray-300">First Name:</strong>
+    <p class="text-gray-200"><%= @employee.first_name %></p>
+  </div>
+  <div class="mb-4">
+    <strong class="text-gray-300">Last Name:</strong>
+    <p class="text-gray-200"><%= @employee.last_name %></p>
+  </div>
+  <div class="mb-4">
+    <strong class="text-gray-300">Address:</strong>
+    <p class="text-gray-200"><%= @employee.address %></p>
+  </div>
+  <div class="mb-4">
+    <strong class="text-gray-300">City:</strong>
+    <p class="text-gray-200"><%= @employee.city %></p>
+  </div>
+  <div class="mb-4">
+    <strong class="text-gray-300">Postal Code:</strong>
+    <p class="text-gray-200"><%= @employee.postal_code %></p>
+  </div>
+  <div class="mb-4">
+    <strong class="text-gray-300">Email:</strong>
+    <p class="text-gray-200"><%= @employee.email %></p>
+  </div>
+  <div class="mb-4">
+    <strong class="text-gray-300">Role:</strong>
+    <p class="text-gray-200"><%= @employee.role.humanize %></p>
+  </div>
+</div>
+
+<div class="mt-6 px-8">
+  <%= link_to 'Edit', edit_employee_path(@employee), class: "mt-6 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded w-full transition" %>
+  <%= link_to 'Back to Employees', employees_path, class: "bg-gray-600 text-white font-bold py-2 px-4 rounded hover:bg-gray-700 transition ml-4" %>
+</div>

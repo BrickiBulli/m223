@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Smartstock" %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-gray-900 text-white">
+  <% if current_employee %>
+    <nav class="bg-gray-800 shadow-lg">
+      <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="navbar-logo text-2xl font-bold">
+          <%= link_to 'SmartStock', root_path, class: "text-purple-500 hover:text-purple-300" %>
+        </div>
+        <ul class="navbar-links flex space-x-6">
+          <li><%= link_to 'Articles', articles_path, class: "text-purple-400 hover:text-purple-300" %></li>
+          <li><%= link_to 'New Article', new_article_path, class: "text-purple-400 hover:text-purple-300" %></li>
+
+          <% if current_employee&.storage_manager? %>
+            <li><%= link_to 'Employees', employees_path, class: "text-purple-400 hover:text-purple-300" %></li>
+            <li><%= link_to 'New Employee', new_employee_path, class: "text-purple-400 hover:text-purple-300" %></li>
+          <% end %>
+
+          <li><%= link_to 'Inventory Entries', inventory_entries_path, class: "text-purple-400 hover:text-purple-300" %></li>
+          <li><%= link_to 'New Inventory Entry', new_inventory_entry_path, class: "text-purple-400 hover:text-purple-300" %></li>
+          
+          <li><%= link_to 'Inventory Exits', inventory_exits_path, class: "text-purple-400 hover:text-purple-300" %></li>
+          <li><%= link_to 'New Inventory Exit', new_inventory_exit_path, class: "text-purple-400 hover:text-purple-300" %></li>
+        </ul>
+        <div class="navbar-auth flex items-center space-x-4">
+          <%= link_to "Profile", employee_path(current_employee), class: 'bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded transition duration-200' %>
+          <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "Are you sure you want to log out?" }, class: 'bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded transition duration-200' %>
+        </div>
+      </div>
+    </nav>
+  <% end %>
+  <%= yield %>
+</body>
+</html>
