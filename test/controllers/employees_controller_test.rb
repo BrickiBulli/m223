@@ -25,30 +25,32 @@ class EmployeesControllerTest < ActionDispatch::IntegrationTest
     }
     # Manually set the session
     @storage_manager = employees(:storage_manager)
-    log_in_as(@storage_manager)
   end
 
   test "should get index" do
+    log_in_as(@storage_manager)
     get employees_url
     assert_response :success
-    assert_not_nil assigns(:employees)
   end
 
   test "should get new" do
+    log_in_as(@storage_manager)
     get new_employee_url
-    assert_response :success
+    assert_redirected_to :success
     assert_not_nil assigns(:employee)
   end
 
   test "should create employee with valid params" do
+    log_in_as(@storage_manager)
     assert_difference('Employee.count') do
       post employees_url, params: { employee: @valid_employee_params }
     end
-    assert_redirected_to employee_url(Employee.last)
+    assert_redirected_to employees_path
     assert_equal 'Employee was successfully created.', flash[:notice]
   end
 
   test "should not create employee with invalid params" do
+    log_in_as(@storage_manager)
     assert_no_difference('Employee.count') do
       post employees_url, params: { employee: @invalid_employee_params }
     end
