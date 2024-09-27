@@ -1,13 +1,24 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  last_name: MyString
-  address: MyString
-  city: MyString
-  postal_code: MyString
-  email: MyString
-  password_digest: MyString
+  first_name: "Example"
+  last_name: "User"
+  address: "123 Main St"
+  city: "Anytown"
+  postal_code: "12345"
+  email: "example@user.com"
+  role: "storeage_worker"
+  password_digest: <%= BCrypt::Password.create('password123456') %>
+
+storage_manager:
+  first_name: "Storage"
+  last_name: "Manager"
+  address: "123 Main St"
+  city: "Anytown"
+  postal_code: "12345"
+  email: "storage@manager.com"
+  role: "storage_manager"
+  password_digest: <%= BCrypt::Password.create('password123456') %>
 
 two:
   first_name: MyString

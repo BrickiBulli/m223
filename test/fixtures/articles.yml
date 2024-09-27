@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  articlenumber: MyString
+  article_number: MyString
   article_text: MyString
   weight: 9.99
 
 two:
   name: MyString
-  articlenumber: MyString
+  article_number: MyString
   article_text: MyString
   weight: 9.99

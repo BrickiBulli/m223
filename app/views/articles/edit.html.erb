@@ -1,23 +1,37 @@
-<h1>Edit Employee</h1>
-<%= form_with(model: @article, local: true) do |form| %>
-    <div>
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
-    <div>
-      <%= form.label :article_number %>
-      <%= form.text_field :article_number %>
-    </div>
-    <div>
-      <%= form.label :article_text %>
-      <%= form.text_area :article_text %>
-    </div>
-    <div>
-      <%= form.label :weight, 'Weight (kg)' %>
-      <%= form.number_field :weight, step: 0.01 %>
-    </div>
-  
-    <%= form.submit 'Update Article' %>
-  <% end %>
-  
-  <%= link_to 'Back', articles_path %>
+<div class="h-16 bg-gray-800"></div>
+
+<div class="flex items-center justify-center h-screen bg-gray-800">
+  <div class="w-full max-w-lg bg-gray-900 p-8 rounded-lg shadow-md">
+    <h1 class="text-3xl font-bold text-white text-center mb-6">Edit Article</h1>
+
+    <%= form_with(model: @article, local: true) do |form| %>
+      <div class="mb-4">
+        <%= form.label :name, class: "text-gray-300" %>
+        <%= form.text_field :name, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :article_number, class: "text-gray-300" %>
+        <%= form.text_field :article_number, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :article_text, class: "text-gray-300" %>
+        <%= form.text_area :article_text, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :weight, 'Weight (kg)', class: "text-gray-300" %>
+        <%= form.number_field :weight, step: 0.01, class: "mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-lg shadow-sm focus:ring focus:ring-purple-300" %>
+      </div>
+
+      <%= form.submit 'Update Article', class: "mt-6 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded w-full" %>
+      
+      <div class="mt-4">
+        <%= link_to 'Back', articles_path, class: "w-full block text-center bg-gray-600 hover:bg-gray-500 text-white font-medium rounded-lg py-2" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="h-16 bg-gray-800"></div>
